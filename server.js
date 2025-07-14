@@ -21,6 +21,12 @@ app.use(logger);
 //routes
 app.use('/api/posts', posts); 
 
+app.use((req, res, next) => {
+    const error = new Error('Not Found');
+    error.status = 404; 
+    next(error);
+});
+
 //error hander
 app.use(errorhandler);
 
