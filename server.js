@@ -3,7 +3,9 @@ import path from 'path';
 import posts from './routes/posts.js';
 import logger from './middleware/logger.js';
 import errorHandler from './middleware/error.js';
+import notFound from './middleware/notFound.js';
 const port = process.env.PORT || 8000;
+
 
 
 const app = express();
@@ -21,13 +23,8 @@ app.use(logger);
 //routes
 app.use('/api/posts', posts); 
 
-app.use((req, res, next) => {
-    const error = new Error('Not Found');
-    error.status = 404; 
-    next(error);
-});
-
 //error hander
+app.use(notFound);
 app.use(errorhandler);
 
 

@@ -2,6 +2,7 @@
   "name": "express-crash-course",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node server",
     "dev": "node --watch --env-file=.env server" 
@@ -11,6 +12,8 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "colors": "^1.4.0",
     "express": "^5.1.0"
+    
   }
 }
