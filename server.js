@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import posts from './routes/posts.js';
 import logger from './middleware/logger.js';
+import errorHandler from './middleware/error.js';
 const port = process.env.PORT || 8000;
 
 
@@ -19,6 +20,9 @@ app.use(logger);
 
 //routes
 app.use('/api/posts', posts); 
+
+//error hander
+app.use(errorhandler);
 
 
 
