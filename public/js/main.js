@@ -56,3 +56,20 @@ async function addPost(e) {
 // Event listeners
 button.addEventListener('click', showPosts);
 form.addEventListener('submit', addPost);
+
+// adding a function to email me when a new post is created
+async function emailNewPost(postTitle) {
+  try {
+    const res = await emailjs.send('service_id', 'template_id', {
+      title: postTitle,
+    });
+
+    if (res.status === 200) {
+      console.log('Email sent successfully');
+    } else {
+      console.error('Failed to send email');
+    }
+  } catch (error) {
+    console.error('Error sending email: ', error);
+  }
+}
