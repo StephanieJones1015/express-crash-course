@@ -57,10 +57,11 @@ async function addPost(e) {
 button.addEventListener('click', showPosts);
 form.addEventListener('submit', addPost);
 
-// adding a function to email me when a new post is created
+// Email notification for new post
+import emailjs from '@emailjs/browser';
 async function emailNewPost(postTitle) {
   try {
-    const res = await emailjs.send('service_id', 'template_id', {
+    const res = await emailjs.send(process.env.NEXT_PUBLIC_SERVICE_ID, process.env.NEXT_PUBLIC_TEMPLATE_ID, {
       title: postTitle,
     });
 
