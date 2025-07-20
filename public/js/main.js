@@ -53,24 +53,6 @@ async function addPost(e) {
   }
 }
 
-// Event listeners
-button.addEventListener('click', showPosts);
-form.addEventListener('submit', addPost);
 
-// Email notification for new post
-import emailjs from '@emailjs/browser';
-async function emailNewPost(postTitle) {
-  try {
-    const res = await emailjs.send(process.env.NEXT_PUBLIC_SERVICE_ID, process.env.NEXT_PUBLIC_TEMPLATE_ID, {
-      title: postTitle,
-    });
 
-    if (res.status === 200) {
-      console.log('Email sent successfully');
-    } else {
-      console.error('Failed to send email');
-    }
-  } catch (error) {
-    console.error('Error sending email: ', error);
-  }
-}
+    
